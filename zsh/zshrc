@@ -1,0 +1,17 @@
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+export ZSH="$HOME"/.oh-my-zsh
+ZSH_THEME="agnoster"
+source $ZSH/oh-my-zsh.sh
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+# export PATH="/Users/serenatiede/awscli-ve/bin/aws_completer:$PATH"
+# source /Users/serenatiede/awscli-ve/bin/aws_zsh_completer.sh
+eval "$(hub alias -s)"
+source ~/.zsh_specific
+source ~/.zsh_secrets
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
